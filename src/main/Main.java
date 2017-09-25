@@ -9,8 +9,10 @@ public class Main {
 		}
 		
 		public static void synthgenRutine() {
-			System.err.println("Synthetic data generation");
-			SynthGen sg = new SynthGen(2);
+			System.err.println("INIT - Synthetic data generation");
+			SynthGen sg = new SynthGen(3, "/home/paloma/Documents");
 			sg.writeFile();
+			System.err.println("END - Synthetic data generation");
 		}
 }
+

@@ -9,11 +9,11 @@ public class SynthGen extends AbstractGen {
 	
 	final double COORD_MAX = 500000;
 	final double DIM_MAX = 100;
+
 	
-	
-	public SynthGen(int n) {
+	public SynthGen(int n, String pwd) {
 		this.N = (int)Math.pow(2, n);
-		this.filename = String.format("synthdata-N%d.csv", N);
+		this.filename = String.format(pwd+"/synthdata-N%d.csv", N);
 		try {
 			this.raf = new RandomAccessFile(filename, "rw");
 		} catch (FileNotFoundException e) {
@@ -52,15 +52,16 @@ public class SynthGen extends AbstractGen {
 		// TODO Auto-generated method stub
 		for(int i=0; i<N; i++) {
 			double [] d = genSingleRectangle();
-		try {
+			try {
 
 				this.raf.writeUTF(String.format("%f,%f,%f,%f\n", d[0], d[1], d[2], d[3]));
+				}
+			catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-	}}
+	}
 	
 	
 }

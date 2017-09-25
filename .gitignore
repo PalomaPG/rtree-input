@@ -1,5 +1,4 @@
-./idea
-*.xml
+.idea
 *.iml
 /bin
 *.csv
